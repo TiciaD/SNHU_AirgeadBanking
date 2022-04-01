@@ -17,5 +17,30 @@ Then returning two static reports of year-end balances and year-end earned inter
 `Annual Interest` (Compounded) --> Interest / 100 for decimal (positive float)  
 `Number of Years` --> Number of years investment has to grow (positive real number)
 
+## Methods
+`readNumber()` --> takes in a prompt and value, returns prompt to console and reads value from user input 
+
+`printReport()` --> calls calculation function, prints results from calculation to console in correct format
+
+`calculateBalance()` --> takes in initialAmount, monthlyDeposit, interest and years and performs calculation to determine year-end balance
+
+`getMonthlyInterest()` --> calculates monthly interest based on years given
+
+## Classes
+```
+Console
+- readNumber(prompt, value)
+```
+```
+Report
+- printReport()
+```
+```
+BalanceCalculator
+- calculateBalance(initialAmount, monthlyDeposit, interest, years)
+```
+
 ## Brief Workflow Overview
+```
+
 ```
