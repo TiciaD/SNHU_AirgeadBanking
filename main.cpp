@@ -79,10 +79,10 @@ class Report {
         float balance;
         // loop over each month
         for (int j = 0; j < 12; j++) {
-          // calculate Year End Earned Interest + monthly deposits
+          // calculate Month End Earned Interest + monthly deposits
           float monthlyInterest = balanceCalculator.calculateInterest(totalAmount, annualInterest, initialAmount, monthlyDeposit);
-          yearlyInterest += initialAmount;
-          balance = balanceCalculator.calculateBalance(totalAmount, initialAmount, monthlyDeposit);
+          yearlyInterest = yearlyInterest + monthlyInterest;
+          balance = balanceCalculator.calculateBalance(totalAmount, monthlyInterest, monthlyDeposit);
         }
         cout << (i + 1) << "\t\t$" << fixed << setprecision(2) << balance << "\t\t\t$" << yearlyInterest << "\n";
       }
@@ -98,11 +98,13 @@ int main () {
   float annualInterest = userInput.readNumber("Annual Interest: %");
   float numOfYears = userInput.readNumber("Number of years: ");
 
+  float initialInvestment = initialAmount;
+
   float total = initialAmount;
   balanceReport.printWithoutMonthlyDeposits(numOfYears, total, annualInterest, initialAmount);
 
-  total = initialAmount;
-  balanceReport.printWithMonthlyDeposits(numOfYears, total, annualInterest, initialAmount, monthlyDeposit);
+  total = initialInvestment;
+  balanceReport.printWithMonthlyDeposits(numOfYears, total, annualInterest, initialInvestment, monthlyDeposit);
 
 
   return 0;
