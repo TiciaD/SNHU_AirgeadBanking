@@ -18,7 +18,7 @@ Then returning two static reports of year-end balances and year-end earned inter
 `Number of Years` --> Number of years investment has to grow (positive real number)
 
 ## Methods
-`readNumber()` --> takes in a prompt and value, returns prompt to console and reads value from user input 
+`readNumber()` --> takes in a prompt, returns prompt to console and reads value from user input 
 
 `printReport()` --> calls calculation function, prints results from calculation to console in correct format
 
@@ -29,7 +29,9 @@ Then returning two static reports of year-end balances and year-end earned inter
 ## Classes
 ```
 Console
-- readNumber(prompt, value)
+- readNumber(prompt)
+  - send string that contains prompt for user
+  - returns value of user input
 ```
 ```
 Report
@@ -42,5 +44,23 @@ BalanceCalculator
 
 ## Brief Workflow Overview
 ```
+START
+
+PROMPT user for initial investment amount
+  WHILE wait for user input
+    IF user input == int
+      break
+    ELSE
+      send error message and continue loop
+    ENDIF
+  ENDWHILE
+
+(repeat for monthly deposit, annual interest, number of years)
+
+GET balance
+
+DISPLAY year-end report
+
+END
 
 ```
